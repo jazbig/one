@@ -1,3 +1,4 @@
+import scroll from './scroll';
 export default function (...args) {
 
     const smallPic = document.querySelectorAll(`.col-lg-3.col-md-4.col-sm-6.col-xs-12.text-center.wow.fadeIn img`);
@@ -24,6 +25,7 @@ export default function (...args) {
         gallary.style.display = 'flex';
         img.src = args[i];
         document.body.style.overflow = `hidden`;
+        document.body.style.marginRight = scroll() + 'px';
     });
 
     gallary.addEventListener('click', (e) => {
@@ -31,6 +33,7 @@ export default function (...args) {
         if (target != img) {
             gallary.style.display = '';  
             document.body.style.overflow = ``;
+            document.body.style.marginRight = '0px';
         }
     });
     

@@ -1,3 +1,4 @@
+import scroll from './scroll';
 export default function (modal, close, trigger, next = 0) {
 
     trigger.addEventListener(`click`, (e) => {
@@ -6,12 +7,14 @@ export default function (modal, close, trigger, next = 0) {
         }
         modal.style.display = `block`;
         document.body.style.overflow = `hidden`;
+        document.body.style.marginRight = scroll() + 'px';
 
     });
 
     close.addEventListener(`click`, (e) => {
         modal.style.display = `none`;
         document.body.style.overflow = ``;
+        document.body.style.marginRight = '0px';
     });
     if (next) {
         next.addEventListener(`click`, (e) => {
@@ -25,8 +28,13 @@ export default function (modal, close, trigger, next = 0) {
         if (e.target === modal) {
             modal.style.display = `none`;
             document.body.style.overflow = ``;
+            document.body.style.marginRight = '0px';
         }
+        
     });
+
+
+
 
 
 }
